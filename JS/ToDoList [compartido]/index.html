@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList-Marian</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <section class="todo-container">
+        <h1>To Do List</h1>
+        <form  class="add-form">
+
+            <div class="input-container">
+                <img class="lupa-busqueda" src="/imagenes/lupa-de-busqueda.png" alt="lupa de busqueda">
+
+                <input class="input-text" id="input-tareas" type="text" placeholder="Ingresá una tarea">
+            </div>
+
+            <button id="btn-agregar-tareas"><span>Agregar</span></button>
+        </form>
+    </section>
+
+    <!-- <section class="separar-elementos"> -->
+        <ul id="lista-tareas" class="tasks-list">
+    <!-- Ejemplo de tareas -->
+            <!-- <li>Jugar al tenis<img class="delete.btn" src="/imagenes/tacho-de-basura.png" alt="boton de borrar" data-id="784514"></li>
+            <li>Jugar al tenis<img class="delete.btn" src="/imagenes/tacho-de-basura.png" alt="boton de borrar" data-id="784514"></li> -->
+    <!-- Fin de ejemplos de tareas -->
+        </ul>
+
+        <!-- Este botón en un principio aparecerá oculto -->
+        <button class="deleteAll-btn" id="deleteAll-btn">Borrar tareas</button>
+    <!-- </section> -->
+
+
+    <footer class="my"> Hecho x Marian </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
