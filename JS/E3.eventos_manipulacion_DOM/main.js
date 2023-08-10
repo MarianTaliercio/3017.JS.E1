@@ -120,13 +120,13 @@ const searchPizza = (e) => {
 
 }
 
-const ultimaPizzaBuscada = JSON.parse(localStorage.getItem("ultimaPizzaBuscada"));
+const ultimaPizzaBuscada = JSON.parse (localStorage.getItem("ultimaPizzaBuscada"));
 
 const recuperarPizza = () => {
     if (ultimaPizzaBuscada) {
         container.innerHTML = `
         <div>
-        <h2>${ultimaPizzaBuscadar.nombre}</h2>
+        <h2>${ultimaPizzaBuscada.nombre}</h2>
         <p>Precio: $${ultimaPizzaBuscada.precio}</p>
         <img class="img-pizza" src=${ultimaPizzaBuscada.imagen}>
         </div>
