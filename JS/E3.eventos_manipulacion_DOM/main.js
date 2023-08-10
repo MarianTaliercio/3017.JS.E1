@@ -25,7 +25,7 @@ Deberán guardar en localStorage la última pizza buscada y renderizada, y al re
 const pizzas = [
     {
         id: 1,
-        nombre: "pizza de Muzzarella",
+        nombre: "Pizza de Muzzarella",
         precio: 500,
         ingredientes: ["Muzzarella", "Tomate", "Aceitunas"],
         imagen: "./img/muzzarella.png",
@@ -33,7 +33,7 @@ const pizzas = [
   
     {
         id: 2,
-        nombre: "pizza de Cebolla",
+        nombre: "Pizza de Cebolla",
         precio: 1500,
         ingredientes: ["Muzzarella", "Tomate", "Cebolla"],
         imagen: "./img/cebolla.png",
@@ -41,7 +41,7 @@ const pizzas = [
   
     {
         id: 3,
-        nombre: "pizza 4 Quesos",
+        nombre: "Pizza 4 Quesos",
         precio: 1380,
         ingredientes: [
             "Muzzarella",
@@ -55,7 +55,7 @@ const pizzas = [
   
     {
         id: 4,
-        nombre: "pizza Especial",
+        nombre: "Pizza Especial",
         precio: 1000,
         ingredientes: ["Muzzarella", "Tomate", "Rucula", "Jamón"],
         imagen: "./img/especial.png",
@@ -63,7 +63,7 @@ const pizzas = [
   
     {
         id: 5,
-        nombre: "pizza con Anana",
+        nombre: "Pizza con Anana",
         precio: 600,
         ingredientes: ["Muzzarella", "Tomate", "Anana"],
         imagen: "./img/anana.png",
@@ -78,44 +78,69 @@ const container = document.getElementById("container");
 
 
 
-
 const searchPizza = (e) => {
     e.preventDefault()
 
-    if (inputForm.value == "") {
-        error.textContent = "Por favor, colocar un mensaje"
-        error.classList.add("error")
-        return;
-    } 
 
     const buscar = pizzas.find((pizza) => pizza.id == inputForm.value)
 
     if(buscar){
         error. textContent = ""
         error.classList.remove("error")
+        inputForm.classList.remove("input-error");
 
         container.innerHTML = `
         <div>
-        <h2>${pizzas.nombre}</h2>
-        <p>${pizzas.precio}</p>
-        <${pizzas.imagen}>
+        <h2>${buscar.nombre}</h2>
+        <p>Precio: $${buscar.precio}</p>
+        <img class="img-pizza" src=${buscar.imagen}>
         </div>
         `
+
+        localStorage.setItem("ultimaPizzaBuscada", JSON.stringify(buscar));
+
+        return;
+    } 
+    
+    if (inputForm.value == "") {
+        container.innerHTML = "";
+        error.textContent = "Por favor, colocar un mensaje"
+        error.classList.add("error");
+        inputForm.classList.add("input-error");
         return;
     } 
 
-    if (!buscar) {
+    else if (!buscar) {
+        container.innerHTML = "";
         error.textContent = "Solo tenemos pizzas de 1 a 5"
-        error.classList.add("error")
+        error.classList.add("error");
+        inputForm.classList.add("input-error");
         return;
     } 
 
 }
 
+const ultimaPizzaBuscada = JSON.parse(localStorage.getItem("ultimaPizzaBuscada"));
+
+const recuperarPizza = () => {
+    if (ultimaPizzaBuscada) {
+        container.innerHTML = `
+        <div>
+        <h2>${ultimaPizzaBuscadar.nombre}</h2>
+        <p>Precio: $${ultimaPizzaBuscada.precio}</p>
+        <img class="img-pizza" src=${ultimaPizzaBuscada.imagen}>
+        </div>
+        `
+    } else {
+        container.innerHTML = "";
+    }
+}
+
 
 const init =() => {
   form.addEventListener("submit", searchPizza);
-  imprimir()
+  document.addEventListener("DOMContentLoaded", recuperarPizza);
+
 }
 
 init();
