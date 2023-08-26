@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;700&family=Edu+QLD+Beginner:wght@400;500;600&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a:link, a:visited, a:active {
+    list-style: none;
+    border: none;
+    text-decoration: none;
+}
+
+/* categorias */
+
+.market-categories{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px;
+    background-color: grey;
+    border-radius: 10px;
+    width: 1000px;
+}
+
+.market-category:hover{
+    background-color: white;
+    cursor: pointer;
+}
+
+
+/* btn de ver mas */
+
+.btn-load{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+
+    background-color: greenyellow;
+    color: black;
+    cursor: pointer;
+    border-style: none;
+}
