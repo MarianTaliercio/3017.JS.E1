@@ -43,3 +43,13 @@ a:link, a:visited, a:active {
     cursor: pointer;
     border-style: none;
 }
+
+/* hidden */
+
+.hidden{
+    display: none;
+}
+
+.active{
+    background-color: blue;
+}
